@@ -1,0 +1,1 @@
+ip地址是可以在 http://tool.chinaz.com/dns/ 上去查的，找一个TTL值比较小的。
