@@ -39,3 +39,23 @@ man 2 stat
   ```bash
     ls [-ABCFGHLPRTWabcdfghiklmnopqrstuwx1] [file...]
   ```  
+###  A quick way to find out what a command does
+
+```bash
+man -f time
+```
+As a convenience，you can use the command whatis as a synonym for man -f：
+```bash
+whatis time
+```
+### searching for a command
+
+```bash
+man -k printf
+```
+search the short descriptions and manual page names for the keyword printf as regular expression. print out any matches
+
+as a convenience， you can use the single word apropos as a synonym for man -k:
+```bash
+apropos printf
+```
