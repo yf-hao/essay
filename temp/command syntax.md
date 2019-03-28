@@ -55,3 +55,8 @@ within Unix, command sytax follows seven rules:
 
 ![](https://raw.githubusercontent.com/fray-hao/images/master/20190327154904.png)
 
+From looking at the syntax, what can we say about this command?
+- The command has 18 different options. You can use -a,-A,-c and so on . The options are enclosed in squrare brackets, this means that you can use zero or more options
+- There is one argument,filename. This argument is optional, as it too is enclosed in square brackets
+- The name of the command and the options are printed in boldface. This means that they must by typed exactly as they appear.
+- The argument is followed by "...", which means that you can use more than one argument.
