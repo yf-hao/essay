@@ -17,3 +17,6 @@ Example 2:
 (a) Regression - Given a picture of a person, we have to predict their age on the basis of the given picture
 
 (b) Classification - Given a patient with a tumor, we have to predict whether the tumor is malignant or benign.
+
+---
+监督式学习中，样本是有标签的，也就是特征有对应的结果。例如房价预测问题，样本是有房价的，不同的特征大小（如房屋大小）对应着不同的房价。
