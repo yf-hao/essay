@@ -115,3 +115,20 @@ $$
 When sometimes called the squared error cost function and it turns out that why do we take the squares of the erros. It turns out that these squared error cost function is a reasonable choice and works well for problems for most regression programs. There are other cost functions that will work pretty well. But the square cost function is probably the most commonly used one for regression problems. Later in this class we'll talk about alternative cost functions as well, but this choice that we just had should be a pretty reasonable thing to try for most linear regression problems.
 
 So far we've just seen a mathematical definition of this cost function. In case this function j of theta zero, theta one. In case this function seems a little bit abstract, and you still don't have a good sense of what it's doing, in the next video, in the next couple videos, I'm actually going to go a little bit deeper into what the cause function "J" is doing and try to give you better intuition about what is computing and why we want to use it...
+
+## 3. Cost Function Intuition 
+If we try to think of it in visual terms, our training data set is scattered on the x-y plane. We are trying to make a straight line (defined by $h_\theta(x)$) which passes through these scattered data points.
+
+Our objective is to get the best possible line. The best possible line will be such so that the average squared vertical distances of the scattered points from the line will be the least. Ideally, the line should pass through all the points of our training data set. 
+
+such a case, the value of $J(\theta_0,\theta_1)$ will be 0. The following example shows the ideal situation where we have a cost function of 0.
+![](https://raw.githubusercontent.com/fray-hao/images/master/20190331092116.png)
+
+When $\theta_1=1$, we get a slope of 1 which goes through every single data point in our model. Conversely, when $\theta_1=0.5$, we see the vertical distance from our fit to the data points increase.This increases our cost function to 0.58.
+
+Plotting several other points yields to the following graph:
+![](https://raw.githubusercontent.com/fray-hao/images/master/20190331092449.png)
+
+![](https://raw.githubusercontent.com/fray-hao/images/master/20190331092318.png)
+
+Thus as a goal, we should try to minimize the cost function. In this case,  $\theta_1=1$ is our global minimum.
