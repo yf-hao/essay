@@ -1,0 +1,121 @@
+IL指令笔记:
+
+1.newObj和initObj
+
+MSDN解释:newObj用于分配和初始化对象,而initObj用户初始化值类型
+
+newObj解释:
+
+(1):从托管堆分配指定类型所需要的全部内存空间
+
+(2):在调用执行构造函数初始化之前,首先初始化对象的附加成员,一个是指向该类型方法表的指针,一个是SyncBlockIndex,用于进行线程
+
+的同步,所有的对象都包含这俩个附加成员,用于管理对象.
+
+(3):最后才是调用构造函数ctor,进行初始化操作,并返回新建对象的引用地址.
+
+initObj:
+
+(1):构造新的值类型,完成值类型初始化,值得关注的是,这种构造不需要调用值类型的构造函数.
+
+(2):initObj还用于完成设定对指定存储单元的指针置空(null),这一操作虽不常见,但是应该引起注意.
+
+由此可见,newObj和initObj,都具有完成实例初始化的功能,但是针对的类型不同,执行的过程有异,其区别:
+
+(1):newObj用于分配和初始化对象,而initObj用于初始化值类型.因此,可以说,newObj在堆中分配内存,并完成初始化.
+
+而initObj则是对栈上已经分配好的内存,进行初始化即可,因此值类型在编译期已经在栈上分配好了内存.
+
+(2):newObj在初始化过程中会调用构造函数,而initObj不会调用构造函数,而是直接对实例置空
+
+(3):newObj有内存分配的过程,而initObj则只完成数据初始化操作.
+
+2.Newarr
+
+Newarr指令用来创建一维从零起始的数组;而多维或非从零起始的一维数组,则仍由newobj指令创建
+
+3.ldstr
+
+String类型的创建由ldstr指令来完成.
+
+4.call,callvirt和calli
+
+call : 使用静态调度,也就是根据引用类型的静态类型来调度方法.(主要负责调用静态方法)
+
+callvirt: 使用虚拟调度,也就是根据引用类型的动态类型来调度方法.(主要负责调用实例方法)
+
+calli:又称间接调用,是通过函数指针来执行方法调用;对应的直接调用当然就是前面的"call和callvirt
+
+5. .assembly
+
+.assembly指令用于定义编译目标或者加载外部库
+
+6. .hash algorithm指令:表示实现安全性所使用的哈希算法;系统缺省为0x00008004,表明为SHA1算法,.ver则表示HelloWord程序集的版本号
+
+7..module为程序集指令,表明定义的模块的元数据,以指定当前模块.
+
+8. imagebase为影像基地址,.file alignment为文件对齐数值;.subsystem为连接系统类型;0x003表示从控制台运行;.cortflags为设置运行库头文件标志,
+
+默认为1.
+
+9.实例解析
+
+.class public auto ansi beforefieldinit HelloWorld extends [mscorlib]System.Object { } //
+
+IL代码解析:
+
+.class表明了Hello World是一个public类,该类继承自外部程序集mscorlib的System.Object类.
+
+public为访问控制权限
+
+auto表明程序加载时内存的布局是由CLR决定的,而不是程序本身
+
+ansi属性则为了在没有被管理和被管理代码间实现无缝转换。没有被管理的代码，指的是没有运行在CLR运行库之上的代码，例如原来的C，C++代码等。 
+ 
+
+beforefieldinit属性为HelloWorld提供了一个附加信息，用于标记运行库可以在任何时候执行类型构造函数方法，只要该方法在第一次访问其静态字段之前执行即可。如果没有beforefieldinit则运行库必须在某个精确时间执行类型构造函数方法，从而影响性能优化，详细的情况可以参与MSDN相关内容。
+
+然后是.ctor方法，代码为：
+
+.method public hidebysig specialname rtspecialname instance void .ctor() cil managed {
+
+// 代码大小 7 (0x7)
+
+.maxstack 8
+
+IL_0000: ldarg.0
+
+IL_0001: call instance void [mscorlib]System.Object::.ctor()
+
+IL_0006: ret
+
+} // end of method HelloWorld::.ctor 
+ cil managed 说明方法体中为IL代码，指示编译器编译为托管代码。 
+ .maxstack表明执行构造函数.ctor期间的评估堆栈（Evaluation Stack）可容纳数据项的最大个数。关于评估堆栈，其用于保存方法所需变量的值，并在方法执行结束时清空，或者存储一个返回值。 
+ IL_0000，是一个标记代码行开头，一般来说，IL_之前的部分为变量的声明和初始化。 
+ ldarg.0 表示装载第一个成员参数，在实例方法中指的是当前实例的引用，该引用将用于在基类构造函数中调用。 
+ call指令一般用于调用静态方法，因为静态方法是在编译期指定的，而在此调用的是构造函数.ctor()也是在编译期指定的；而另一个指令callvirt则表示调用实例方法，它的调用过程有异于call，函数的调用是在运行时确定的，首先会检查被调用函数是否为虚函数，如果不是就直接调用，如果是则向下检查子类是否有重写，如果有就调用重写实现，如果没有还调用原来的函数，依次类推直到找到最新的重写实现。 
+ ret表示执行完毕，返回。
+
+最后是Main方法，代码为：
+
+.method public hidebysig static void Main() cil managed
+
+{
+
+.entrypoint
+
+// 代码大小 11 (0xb)
+
+.maxstack 8
+
+IL_0000: ldstr "Hello, world."
+
+IL_0005: call void [mscorlib]System.Console::WriteLine(string)
+
+IL_000a: ret
+
+} // end of method HelloWorld::Main 
+ .entrypoint指令表明了CLR加载程序HelloWorld.exe时，是首先从.entrypoint方法开始执行的，也就是表明Main方法将作为程序的入口函数。每个托管程序必须有并且只有一个入口点。这区别于将Main函数作为程序入口标志。 
+ ldstr指令表示将字符串压栈，"Hello, world."字符串将被移到stack顶部。CLR通过从元数据表中获得文字常量来构造string对象，值得注意的是，在此构造string对象并未出现在《第五回：深入浅出关键字---把new说透》中提到的newobj指令，对于这一点的解释我们将在下一回中做简要分析。 
+ hidebysig属性用于表示如果当前类作为父类时，类中的方法不会被子类继承，因此HelloWorld子类中不会看到Main方法。
