@@ -6,5 +6,5 @@
     ```
 3. 安装electron
     ```
-    cnpm install -g electron
+    sudo cnpm install -g --save-dev electron
     ```
