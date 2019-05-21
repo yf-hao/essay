@@ -12,3 +12,4 @@ https://blog.csdn.net/qq405935987/article/details/83789697
 ## pdf
 https://edoc.pub/
 http://www.ebooksz.net
+https://epdf.tips/
