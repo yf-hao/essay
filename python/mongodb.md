@@ -20,3 +20,5 @@ data = [
 collection.insert(data)
 
 ```
+## 2.查询数据
+
