@@ -1,0 +1,1 @@
+pycharm->preferences->Project:xxx-> Project Interpreter
