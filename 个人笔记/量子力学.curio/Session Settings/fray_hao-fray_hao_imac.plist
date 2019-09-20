@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>1344471E-2CC8-4428-9B0E-EFE04E926EBF</key>
+	<dict>
+		<key>Active Layer</key>
+		<string>Default</string>
+		<key>Visible Rect</key>
+		<string>{{0, 0}, {2068.9999999999595, 1152}}</string>
+		<key>Zoom Factor</key>
+		<real>0.0</real>
+	</dict>
+	<key>1B29468B-5839-480C-8DE2-32B641B85ACA</key>
+	<dict>
+		<key>Active Layer</key>
+		<string>Default</string>
+		<key>Visible Rect</key>
+		<string>{{0, 5.6843418860808015e-14}, {1556, 950}}</string>
+		<key>Zoom Factor</key>
+		<real>1</real>
+	</dict>
+	<key>5569B28C-F9DD-4FFC-BCF2-35317A2FF769</key>
+	<dict>
+		<key>Active Layer</key>
+		<string>Default</string>
+		<key>Visible Rect</key>
+		<string>{{0, 0}, {2069.3348329048858, 1152}}</string>
+		<key>Zoom Factor</key>
+		<real>0.0</real>
+	</dict>
+	<key>B7CD7B3D-9FC7-45F0-946E-F8A496B25E6F</key>
+	<dict>
+		<key>Active Layer</key>
+		<string>Default</string>
+		<key>Visible Rect</key>
+		<string>{{0, 0}, {2048, 1152}}</string>
+		<key>Zoom Factor</key>
+		<real>0.0</real>
+	</dict>
+	<key>EDDD3F08-CBFD-4A69-8657-D0211884AA29</key>
+	<dict>
+		<key>Active Layer</key>
+		<string>Default</string>
+		<key>Visible Rect</key>
+		<string>{{0, 0}, {2048, 1152}}</string>
+		<key>Zoom Factor</key>
+		<real>0.0</real>
+	</dict>
+	<key>Expanded Ideaspaces For Section 1BCD77EA-8E0A-49E6-B389-4B07F05101CF</key>
+	<array/>
+	<key>Expanded Sections</key>
+	<array/>
+	<key>FFC79044-B1CD-4F90-9B48-E71EBBAAF914</key>
+	<dict>
+		<key>Active Layer</key>
+		<string>Default</string>
+		<key>Visible Rect</key>
+		<string>{{0, 0}, {2048, 1152}}</string>
+		<key>Zoom Factor</key>
+		<real>0.0</real>
+	</dict>
+	<key>Last Viewed Ideaspaces For Section 1BCD77EA-8E0A-49E6-B389-4B07F05101CF</key>
+	<array>
+		<string>EDDD3F08-CBFD-4A69-8657-D0211884AA29</string>
+	</array>
+	<key>Last Viewed Section</key>
+	<array>
+		<string>1BCD77EA-8E0A-49E6-B389-4B07F05101CF</string>
+	</array>
+	<key>Scroll Position For Section 1BCD77EA-8E0A-49E6-B389-4B07F05101CF</key>
+	<string>{0, 0}</string>
+	<key>Sections Visible</key>
+	<false/>
+</dict>
+</plist>
